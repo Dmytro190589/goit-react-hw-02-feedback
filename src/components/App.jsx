@@ -16,8 +16,10 @@ export class App extends Component {
 
   stateInput = e => {
     const num = e.currentTarget.textContent.toLowerCase();
-    this.setState(prevState => ({ [num]: (prevState[num] += 1) }));
+    this.setState(prevState => ({ [num]: (prevState[num] += 1)
+     }));
   };
+ 
 
   countTotalFeedback() {
     return this.state.good + this.state.neutral + this.state.bad;
@@ -39,7 +41,6 @@ export class App extends Component {
           {this.countTotalFeedback() === 0 ? (
             <Notification />
           ) : (
-            <Section>
               <Statistics
                 good={this.state.good}
                 neutral={this.state.neutral}
@@ -47,7 +48,6 @@ export class App extends Component {
                 total={this.countTotalFeedback()}
                 positivePercentage={this.countPositiveFeedbackPercentage()}
               />
-            </Section>
           )}
         </Section>
       </div>
